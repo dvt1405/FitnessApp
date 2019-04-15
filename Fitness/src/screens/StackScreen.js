@@ -6,13 +6,17 @@ import {
 } from 'react-navigation'
 import { Image } from 'react-native'
 import HomeScreen from './HomeScreen';
-import SettingScreen from './SettingScreen';
-import MenuApp from '../Components/MenuApp';
-import { windowWidth } from "../Components/Styles";
-import ListSubject from "../Components/ListSubject";
+import MenuApp from '../components/MenuApp';
+import { windowWidth } from "../components/Styles";
+import ListSubject from "../components/ListSubject";
 import PersonnalScreen from "./PersonalScreen";
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
+import Login from "../components/Login";
+import Register from "../components/Register";
+import CustomWorkScreen from "./CustomWorkScreen";
+import CustomWorkScreenFirst from "./CustomWorkScreenFirst";
+import ListCustomWorkScreen from "./CustomWorkScreenListWork";
 // import {createMaterialTopTabNavigator} from 'react-navigation-tabs'
 const routeConfigs = {
     Home: {
@@ -58,7 +62,39 @@ const drawerNavigatorConfigs = {
     }
 }
 export const drawerScreen = createDrawerNavigator(routeConfigs, drawerNavigatorConfigs)
-export const StackScreen = createStackNavigator({
+export const customWorkStackScreen = createStackNavigator({
+    CustomWorkouts: {
+        screen: CustomWorkScreen,
+        navigationOptions: {
+            title: 'CustomWork',
+            headerStyle: {
+                backgroundColor: 'white',
+                // textAlign: 'center',
+                elevation: 0,
+            },headerTitleStyle: {
+                fontFamily: 'monospace',
+                fontSize: 25,
+                textAlign: 'right', 
+                shadowColor: '#fff',
+                left: windowWidth*0.22,
+                color: 'black'
+            }
+        }
+    },
+    AddWorkScreen: {
+        screen: CustomWorkScreenFirst,
+        navigationOptions: {
+            title: 'CustomWorks'
+        }
+    },
+    SelectWorkScreen: {
+        screen: ListCustomWorkScreen,
+        navigationOptions: {
+            title: 'Seclect works'
+        }
+    }
+})
+export const homeStackScreen = createStackNavigator({
     Home: {
         screen: HomeScreen,
         navigationOptions: {
@@ -72,28 +108,28 @@ export const StackScreen = createStackNavigator({
 })
 const bottomTab = createMaterialTopTabNavigator({
     Home: {
-        screen: StackScreen,
+        screen: homeStackScreen,
         navigationOptions: {
             tabBarIcon: ({ tintColor }) => (<Icon name='home' size={25} color={tintColor} />),
             swipeEnabled: true,
         }
     },
     MyExercise: {
-        screen: PersonnalScreen,
+        screen: customWorkStackScreen,
         navigationOptions: {
             tabBarIcon: ({ focused, tintColor }) => (<Icon name='plus' size={25} color={tintColor} />),
             swipeEnabled: true,
         }
     },
     Personal: {
-        screen: PersonnalScreen,
+        screen: Login,
         navigationOptions: {
             tabBarIcon: ({ tintColor }) => (<Icon name='user' size={25} color={tintColor} />),
             swipeEnabled: true,
         }
     },
     History: {
-        screen: PersonnalScreen,
+        screen: Register,
         navigationOptions: {
             tabBarIcon: ({tintColor}) => (<Icon name='bookmark' size={25} color={tintColor} />),
             swipeEnabled: true,
@@ -110,16 +146,16 @@ const bottomTab = createMaterialTopTabNavigator({
             showIcon: true,
             swipeEnabled: true,
             style: {
-                backgroundColor: '#909098',
+                backgroundColor: 'white',
                 
             },
             tabStyle: {
-                backgroundColor: '#909098'
+                backgroundColor: 'white'
             },
             indicatorStyle: {
                 backgroundColor: '#909098'
             },
-            inactiveTintColor: 'black',
+            inactiveTintColor: '#909098',
             activeTintColor: 'blue',
             pressOpacity: 0.4
 

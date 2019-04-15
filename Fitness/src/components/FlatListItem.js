@@ -31,6 +31,7 @@ class FlatListItem extends Component {
                     renderItem={this._renderItem}
                     keyExtractor={this._keyExtractor}
                     style={styles.mainHomeScreenFlatList}
+                    numColumns={2}
                 />
             </View>
         );

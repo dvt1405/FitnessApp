@@ -57,7 +57,7 @@ export const dataMenu = [
 export const dataApp= [
     {
         id: 1,
-        name: 'tay',
+        name: 'Tay',
         listSubjects:[
             {
                 id: 1,
@@ -83,7 +83,7 @@ export const dataApp= [
         ]
     },{
         id: 2,
-        name: 'chân',
+        name: 'Chân',
         listSubjects:[
             {
                 id: 1,
@@ -109,7 +109,7 @@ export const dataApp= [
         ]
     },{
         id: 3,
-        name: 'ngực',
+        name: 'Ngực',
         listSubjects:[
             {
                 id: 1,
@@ -135,7 +135,7 @@ export const dataApp= [
         ]
     },{
         id: 4,
-        name: 'mông',
+        name: 'Mông',
         listSubjects:[
             {
                 id: 1,
